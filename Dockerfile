@@ -7,7 +7,9 @@ ENV NODE_ENV=production
 
 # Install dependencies (prefer lockfile if present)
 COPY package.json package-lock.json* ./
-RUN npm ci --silent || npm install --silent
+# Install devDependencies too so TypeScript is available when Next loads next.config.ts
+# Use npm's include flag to ensure dev deps are installed even with NODE_ENV=production
+RUN npm ci --include=dev --silent || npm install --include=dev --silent
 
 # Copy source and build app
 COPY . .
