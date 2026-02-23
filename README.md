@@ -1,173 +1,319 @@
-**Kindway — Next.js Website**
+# Kindway — HaXplore '26 Submission
 
-**Team:** Neutrons
+---
 
-- **Nikitha Kunapareddy**
-- **Lalith Vasireddy**
+## 🌐 Live Hosted URL
 
-Overview
--
-Kindway is a marketing/informational website built with Next.js using the App Router. The repository contains a fully client-and-server-rendered site with accessible pages, a structured `app/` layout, and optimized static assets. This README documents how the project is structured, how to run and build it locally, how the provided Dockerfile supports deployment to Google Cloud Run, and operational guidance for production.
+> ## 👉 [https://haxplore-344002794323.asia-south1.run.app/](https://haxplore-344002794323.asia-south1.run.app/)
+>
+> **Judges: Click the link above to interact with the live application.**
 
-Project snapshot
--
-- Framework: Next.js (version 16.1.6)
-- React: 19.2.3
-- TypeScript: project configured (see `tsconfig.json`)
-- Styling: Tailwind CSS (via `@tailwindcss/postcss`)
-- App directory: `src/app`
-- Static assets: `public/` (images and docs)
+---
 
-Repository structure (high level)
--
-- `src/app/` — Application source using Next.js App Router; pages live here (home, about, blog, contact, gallery, products, training, mobile-clinic)
-- `src/components/` — Reusable React components (Navbar, Footer, PageBanner, widgets, etc.)
-- `public/` — Static assets (images, docs)
-- `.next/` — Build output (created after `npm run build`)
-- `next.config.ts` — Next.js config; `output: "standalone"` is enabled for Docker-friendly builds
-- `Dockerfile` — Multi-stage Docker build (created and optimized for Cloud Run)
-- `.dockerignore` — Files excluded from Docker context
-- `package.json` — scripts and dependency list
+## 🏆 HaXplore '26 — Submission Details
 
-What this app implements
--
-- A responsive, accessible marketing website with multiple content pages
-- Client side animation using `framer-motion`
-- Componentized layout and UI patterns in `src/components`
-- Image and static asset serving via the `public` folder
-- TypeScript support for components and pages
+**Hackathon:** HaXplore '26
 
-Local development
--
-Prerequisites:
-- Node.js (recommended Node 20 LTS)
-- npm (or Yarn / pnpm)
+**Team Name:** Neutrons
 
-Run locally for development:
+**Team Members:**
+| Name | Role |
+|---|---|
+| Likhith Vasireddy | Fullstack / DevOps / Cloud |
+| Lalith Vasireddy | Frontend |
+| Nikitha Kunapareddy | Frontend / UX |
 
-```bash
-npm install
-npm run dev
-# opens on http://localhost:3000 by default
+---
+
+## 💡 Submission Idea — Problem & Solution
+
+### Problem Statement
+
+Small clinics and local dental biotech companies often lack a modern, mobile-first web presence to communicate:
+- Their product offerings (implants, bone grafts, surgical kits)
+- Training workshops and certification programs for dentists
+- Mobile dental clinic outreach schedules and locations
+- Contact and inquiry channels for both patients and professionals
+
+The original Kindway website was a high-complexity dental biotech site with poor mobile responsiveness, unclear navigation, no dedicated service pages, no online registration tools, and minimal calls to action — leading to missed patient engagement, poor SEO, and lost business conversions.
+
+### Our Solution
+
+We rebuilt the Kindway dental biotech website from scratch using **Next.js** (App Router) to create a **high-conversion, mobile-first educational and commercial portal** that addresses every gap in the original site.
+
+### Key Improvements Implemented
+
+#### 1. 🗺️ Improved Website Structure & Navigation
+- Simplified top navigation with key pages: **Home, About, Products, Training & Workshops, Mobile Dental Clinic, Contact Us**
+- Dedicated individual service pages:
+  - `/products/dental-implants` — Dental Implants page
+  - `/products/bone-grafts` — Bone Grafts page
+  - `/mobile-clinic` — Mobile Dental Clinic page
+  - `/training` — Training Courses page
+- **Sticky Navbar** that remains visible while scrolling on all pages (built into `src/components/Navbar.tsx`)
+
+#### 2. 📱 Mobile-Friendly, Responsive Design
+- Fully responsive layout using **Tailwind CSS v4** — works seamlessly on phones, tablets, and desktops
+- All buttons, forms, and sign-up elements tested for small screen compatibility
+- No broken layouts on mobile viewport sizes
+
+#### 3. 📣 Stronger Calls to Action (CTAs)
+- Prominent action buttons on every page: **Register for Workshop**, **View Product Catalogue**, **Contact Sales**, **Book Training**
+- High-contrast CTA colors for visibility
+- Action-oriented text ("Book Your Slot Today", "Learn More", "Get in Touch")
+
+#### 4. 🖼️ Engaging Visuals & Social Proof
+- Professional photo gallery of implant products, surgical workshops, and outreach programs (`/gallery`)
+- Before & After clinical results for bone grafting and implant cases
+- Testimonials and quotes from dentists and patients to build credibility
+
+#### 5. 📚 Educational Content & SEO
+- Dedicated blog section (`/blog`) with educational articles:
+  - How dental implants work
+  - Importance of bone grafts in implant success
+  - Tips for implant surgery planning
+  - Case studies from workshops
+- Keywords integrated: "dental implants training", "bone graft materials", "dental outreach programs"
+- Individual blog post pages with dynamic routing (`/blog/[slug]`)
+
+#### 6. 📅 Online Booking & Registration Tools
+- Online registration capability for workshops directly on the site
+- Event calendar showing upcoming course dates and outreach campaigns
+
+#### 7. 📞 Contact & Support Enhancements
+- Visible contact info (phone, email, WhatsApp) accessible on every page via the footer and contact page
+- **WhatsApp Widget** (live chat button) — `src/components/WhatsAppWidget.tsx`
+- **Tawk.to Live Chat** integration — `src/components/TawkChat.tsx`
+- Contact inquiry form on `/contact`
+- Google Maps embed available on the contact page
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Version | Purpose |
+|---|---|---|
+| Next.js | 16.1.6 | Framework (App Router, SSR, static export) |
+| React | 19.2.3 | UI library |
+| TypeScript | ^5 | Type safety |
+| Tailwind CSS | ^4 | Utility-first styling |
+| Framer Motion | ^12 | Animations and transitions |
+| React Icons | ^5.5 | Icon components |
+| Docker | — | Containerization |
+| Google Cloud Run | — | Hosting / deployment |
+
+---
+
+## 📁 Repository Structure
+
+```
+kindway-nextjs/
+├── src/
+│   ├── app/                        # Next.js App Router pages
+│   │   ├── page.tsx                # Home page
+│   │   ├── about/page.tsx          # About page
+│   │   ├── blog/page.tsx           # Blog listing
+│   │   ├── blog/[slug]/page.tsx    # Individual blog posts
+│   │   ├── contact/page.tsx        # Contact page
+│   │   ├── gallery/page.tsx        # Gallery page
+│   │   ├── mobile-clinic/page.tsx  # Mobile Clinic page
+│   │   ├── products/page.tsx       # Products overview
+│   │   ├── products/dental-implants/page.tsx
+│   │   ├── products/bone-grafts/page.tsx
+│   │   ├── training/page.tsx       # Training & Workshops
+│   │   ├── globals.css             # Global styles
+│   │   └── layout.tsx              # Root layout (Navbar, Footer)
+│   ├── components/
+│   │   ├── Navbar.tsx              # Sticky responsive navigation
+│   │   ├── Footer.tsx              # Site-wide footer with contact
+│   │   ├── PageBanner.tsx          # Reusable page hero banner
+│   │   ├── AnimateOnScroll.tsx     # Scroll-triggered animations
+│   │   ├── StatsCounter.tsx        # Animated statistics section
+│   │   ├── ScrollToTop.tsx         # Scroll-to-top button
+│   │   ├── WhatsAppWidget.tsx      # WhatsApp floating chat
+│   │   └── TawkChat.tsx            # Tawk.to live chat widget
+│   └── lib/                        # Utility functions
+├── public/
+│   ├── images/                     # All site images and assets
+│   └── doc/                        # Downloadable documents
+├── Dockerfile                      # Multi-stage Docker build for Cloud Run
+├── .dockerignore                   # Docker build context exclusions
+├── next.config.ts                  # Next.js config (standalone output)
+├── tsconfig.json                   # TypeScript configuration
+├── postcss.config.mjs              # PostCSS / Tailwind config
+└── package.json                    # Dependencies and scripts
 ```
 
-Notes:
-- The `dev` script runs the Next.js dev server with hot-module reloading.
-- The project uses the `app/` directory convention (App Router). Edit `src/app/page.tsx` to modify the homepage.
+---
 
-Build for production (locally):
+## 🚀 Local Development
+
+### Prerequisites
+- Node.js **v20 LTS** or higher
+- npm (included with Node.js)
+
+### Run in development mode
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/Likhith623/haxplore.git
+cd haxplore
+
+# 2. Install dependencies
+npm install
+
+# 3. Start development server
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser. The page auto-reloads as you edit files.
+
+### Build and run production locally
 
 ```bash
 npm ci
 npm run build
 npm start
+# open http://localhost:3000
 ```
 
-- `npm run build` creates a standalone output (because `next.config.ts` sets `output: "standalone"`). The production server will be started with `npm start` or the `server.js` generated under the `.next/standalone` output.
+---
 
-Docker & Google Cloud Run (production)
--
-This repository includes a multi-stage `Dockerfile` optimized to run the Next.js standalone output and a `.dockerignore` to keep the build context small.
-
-Build and push using Google Cloud Build (recommended):
+## 🐳 Docker — Build & Run Locally
 
 ```bash
-# from repo root — replace PROJECT-ID and REGION
+# Build the image
+docker build -t kindway-nextjs:local .
+
+# Run the container
+docker run --rm -p 8080:8080 kindway-nextjs:local
+
+# Visit http://localhost:8080
+```
+
+---
+
+## ☁️ Google Cloud Run — Deploy
+
+The project is containerized with a production-optimized multi-stage `Dockerfile` using Node 20 Alpine. It uses Next.js `output: "standalone"` for a compact runtime image.
+
+### Deploy via Cloud Build (recommended)
+
+```bash
+# Replace PROJECT-ID and REGION with your values
 gcloud builds submit --tag gcr.io/PROJECT-ID/kindway-nextjs
 
 gcloud run deploy kindway-nextjs \
-	--image gcr.io/PROJECT-ID/kindway-nextjs \
-	--platform managed \
-	--region REGION \
-	--allow-unauthenticated \
-	--port 8080
+  --image gcr.io/PROJECT-ID/kindway-nextjs \
+  --platform managed \
+  --region REGION \
+  --allow-unauthenticated \
+  --port 8080
 ```
 
-Or build locally and push the image manually:
+### Deploy via local Docker push
 
 ```bash
 docker build -t gcr.io/PROJECT-ID/kindway-nextjs .
 docker push gcr.io/PROJECT-ID/kindway-nextjs
-gcloud run deploy kindway-nextjs --image gcr.io/PROJECT-ID/kindway-nextjs --platform managed --region REGION --allow-unauthenticated --port 8080
+gcloud run deploy kindway-nextjs \
+  --image gcr.io/PROJECT-ID/kindway-nextjs \
+  --platform managed \
+  --region REGION \
+  --allow-unauthenticated \
+  --port 8080
 ```
 
-Key Docker / Cloud Run notes
--
-- The Dockerfile runs `npm run build` in a builder stage and copies the Next standalone output into a small Node 20 Alpine runner image.
-- Cloud Run expects your container to listen on the port provided by the `PORT` environment variable; the Dockerfile defaults to `8080` and exposes it. Cloud Run will override `PORT` at runtime.
-- Using `output: "standalone"` in `next.config.ts` produces a `server.js` entrypoint at the container root which is invoked as `node server.js` in the provided Dockerfile.
+### How the Dockerfile works
 
-Environment variables and secrets
--
-- For local development, a `.env.local` file is supported by Next.js but is excluded from Docker via `.dockerignore`.
-- For production on Cloud Run, provide secrets using Secret Manager or set environment variables via `gcloud run services update` or the Cloud Run console.
+| Stage | What it does |
+|---|---|
+| `builder` | Installs all deps (including devDeps for TypeScript), runs `npm run build` |
+| `runner` | Copies `.next/standalone`, `.next/static`, and `public/` into a lean Alpine image |
+| Runtime | Starts with `node server.js`; Cloud Run injects `PORT=8080` automatically |
 
-Performance & optimization
--
-- Static assets in `public/` are served as-is. Ensure images are compressed for smaller transfer sizes.
-- Tailwind is configured via `postcss.config.mjs` and is included in the build pipeline.
-- If you add server-side data fetching, prefer incremental/static rendering patterns where appropriate to reduce cold-start cost.
+---
 
-Security considerations
--
-- Do not commit private keys or secrets to the repository. Use environment variables or cloud secret stores for API keys and credentials.
-- Keep dependencies up to date and scan with tools like `npm audit`.
+## 🔒 Environment Variables
 
-CI/CD recommendations
--
-- Use Cloud Build (recommended) or GitHub Actions to build, test, and push images on merge to `main`.
-- Example GitHub Action steps:
-	- Install Node, install deps, run `npm run build`, run tests
-	- Build Docker image and push to Google Container Registry or Artifact Registry
-	- Deploy to Cloud Run using `gcloud` with a service account that has deploy permissions
+| Variable | Where to set | Notes |
+|---|---|---|
+| `PORT` | Cloud Run (auto-injected) | Container listens on this port |
+| `NEXT_PUBLIC_*` | `.env.local` (dev) or Cloud Run env | Client-visible env vars |
 
-Troubleshooting
--
-- If `npm run build` fails, check compiler errors in TypeScript or missing imports.
-- If the container fails to start on Cloud Run, inspect the service logs in the Cloud Console (`Cloud Run > Service > Logs`) or run `gcloud run logs read SERVICE --region REGION`.
-- If static assets 404, verify they exist under `public/` and were copied into the `.next/static` during build.
+> `.env.local` is excluded from Docker via `.dockerignore`. Set production secrets in [Cloud Run Environment Variables](https://cloud.google.com/run/docs/configuring/environment-variables) or [Secret Manager](https://cloud.google.com/secret-manager).
 
-Testing and validation
--
-- Basic local test (after `npm run build`):
+---
 
-```bash
-npm start
-# then visit http://localhost:3000
-```
+## 📦 Scripts Reference
 
-- Docker local test:
+| Script | Command | Description |
+|---|---|---|
+| `dev` | `npm run dev` | Start dev server with HMR |
+| `build` | `npm run build` | Production build (standalone output) |
+| `start` | `npm start` | Start production server |
+| `lint` | `npm run lint` | Run ESLint |
 
-```bash
-docker build -t kindway-nextjs:local .
-docker run --rm -p 8080:8080 kindway-nextjs:local
-# visit http://localhost:8080
-```
+---
 
-Maintenance & future improvements
--
-- Add automated unit and integration tests (Jest/Playwright) to cover essential flows.
-- Add CI linting (ESLint) and type-checking before merges.
-- Consider image size optimizations (slim base image, remove dev-only dependencies before copy).
+## 🧩 Pages & Routes
 
-Contact & credits
--
-- Project: Kindway — Next.js Website
-- Team: **Neutrons**
-	- **Nikitha Kunapareddy** — Frontend / UX
-	- **Lalith Vasireddy** — Fullstack / DevOps
+| Route | Page |
+|---|---|
+| `/` | Home |
+| `/about` | About Kindway |
+| `/products` | Products overview |
+| `/products/dental-implants` | Dental Implants detail |
+| `/products/bone-grafts` | Bone Grafts detail |
+| `/training` | Training & Workshops |
+| `/mobile-clinic` | Mobile Dental Clinic |
+| `/gallery` | Photo Gallery |
+| `/blog` | Blog listing |
+| `/blog/[slug]` | Individual blog post |
+| `/contact` | Contact & Inquiry |
 
-If you need me to add automated CI config, tests, health checks, or to run a local build to verify the Docker image, say which one you prefer and I will proceed.
+---
 
-License
--
-Include a `LICENSE` file if this project will be open source. If this is private, keep the repository private and manage access via your Git provider.
+## 🐛 Troubleshooting
 
-Files changed/created in this repo relevant to deploy:
--
-- `next.config.ts` — `output: "standalone"` required for the Docker pattern
-- `Dockerfile` — multi-stage build tailored for Cloud Run
-- `.dockerignore` — keeps Docker context small and secure
+| Issue | Fix |
+|---|---|
+| `Cannot find module 'typescript'` during Docker build | Fixed — `Dockerfile` installs devDeps with `--include=dev` |
+| Images 404 on deployed site | Fixed — `public/` is explicitly copied into the runner image |
+| Container won't start on Cloud Run | Check logs: `gcloud run logs read kindway-nextjs --region REGION` |
+| `next.config.ts` transpile error | Caused by missing TypeScript; resolved by installing devDeps in builder |
 
-Thank you — ready to help with CI, Cloud Run service configuration, or running the build locally.
+---
 
+## 📋 Submission Checklist
+
+- [x] Complete source code in public GitHub repository
+- [x] Design assets included in `public/images/`
+- [x] README with problem statement and solution description
+- [x] Hosted live URL provided and working
+- [x] Mobile-friendly responsive design
+- [x] Dedicated service pages (Implants, Bone Grafts, Mobile Clinic, Training)
+- [x] Sticky navigation bar
+- [x] Calls to action on every page
+- [x] Photo gallery with clinical visuals
+- [x] Blog with educational content
+- [x] Contact page with WhatsApp and live chat
+- [x] Dockerized and deployed on Google Cloud Run
+
+---
+
+## 👥 Team Neutrons
+
+| Name | Role |
+|---|---|
+| **Likhith Vasireddy** | Fullstack Developer / Cloud & DevOps |
+| **Lalith Vasireddy** | Frontend & Backend Developer |
+| **Nikitha Kunapareddy** | Frontend Developer / UX |
+
+---
+
+## 🔗 Links
+
+- **Live Site:** [https://haxplore-344002794323.asia-south1.run.app/](https://haxplore-344002794323.asia-south1.run.app/)
+- **GitHub Repository:** [https://github.com/Likhith623/haxplore](https://github.com/Likhith623/haxplore)
+- **Hackathon:** HaXplore '26
