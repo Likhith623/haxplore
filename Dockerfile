@@ -23,6 +23,7 @@ ENV PORT=8080
 # Copy standalone output and static assets from builder
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/public ./public
 
 EXPOSE 8080
 
