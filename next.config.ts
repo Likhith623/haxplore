@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "standalone",
+  output: "export",
 };
 
+// module.exports = {
+//   distDir: 'build', 
+// };
 export default nextConfig;

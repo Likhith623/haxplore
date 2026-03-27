@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 const executiveTeam = [
-  { name: 'Dr. Rajesh Bansal', role: 'Founder Director (MDS, PhD)', image: '/images/t1.jpg' },
+  { name: 'Dr. Rajesh Bansal', role: 'Founder Director (MDS, PhD)', image: '/images/Rajesh_bansal.jpeg' },
   { name: 'Prof. D. D. N. Singh', role: 'M.Sc, PhD', image: '/images/t6.jpg' },
   { name: 'Prof. Vakil Singh', role: 'M.Sc, PhD', image: '/images/t7.jpg' },
   { name: 'Prof. Monika Bansal', role: 'MDS, PhD (Periodontist)', image: '/images/t8.jpg' },
@@ -23,6 +23,7 @@ const team = [
   { name: 'Mr. Anshu Pandey', role: 'Assistant & CNC Operator', image: '/images/t4.jpg' },
   { name: 'Dr. Robin Kr. Chaube', role: 'Dental Officer', image: '/images/robin.jpg' },
   { name: 'Dr. Sourav Kr. Vishwakarma', role: 'Graft R&D Officer', image: '/images/sourav.jpg' },
+  { name: 'Mr. Himanshu', role: 'CA', image: '/images/himanshu.jpeg' },
 ];
 
 export default function AboutPage() {
@@ -82,6 +83,58 @@ export default function AboutPage() {
         </div>
       </section>
 
+       {/* Director & Founder */}
+          <section className="py-20 lg:py-28 bg-surface">
+            <div className="max-w-7xl mx-auto px-4">
+              <div className="grid lg:grid-cols-2 gap-16 items-center">
+                
+                <AnimateOnScroll animation="slide-in-left">
+                  <Image 
+                    src="/images/Rajesh_bansal.jpeg" 
+                    alt="Dr Rajesh Bansal" 
+                    width={600} 
+                    height={500} 
+                    className="rounded-2xl shadow-xl object-cover w-full" 
+                  />
+                </AnimateOnScroll>
+
+                <AnimateOnScroll animation="slide-in-right">
+                  <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+                    About the Director & Founder
+                  </span>
+                  
+                  <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-2 mb-4">
+                    Prof. Dr. Rajesh Bansal
+                  </h2>
+
+                  <p className="text-muted font-medium mb-4">
+                    Founder Director (MDS, PhD)
+                  </p>
+
+                  <div className="space-y-3 text-muted leading-relaxed">
+                    <p><span className="font-semibold text-foreground">Experience:</span> 16+ years (Undergraduate & Postgraduate Teaching)</p>
+
+                    <p><span className="font-semibold text-foreground">Implants & Innovations:</span> Development of Indigenous Dental Implants (cp-Ti) and Allograft systems</p>
+
+                    <p><span className="font-semibold text-foreground">Publications:</span> 25+ research publications in reputed international journals</p>
+
+                    <p><span className="font-semibold text-foreground">Awards:</span> Multiple academic awards including international conference recognitions and institutional honors</p>
+
+                    <p><span className="font-semibold text-foreground">Guest Speaker:</span> Delivered lectures, presentations, and research contributions at Local, National, and International platforms</p>
+                  </div>
+
+                  <div className="mt-6 space-y-2 text-muted text-sm leading-relaxed">
+                    <p>• Commonwealth Fellow, University College London (2015)</p>
+                    <p>• Led major DST & DBT funded research projects (~₹1.2 Cr)</p>
+                    <p>• Patent Granted (2019) on titanium implant surface nanocrystallization</p>
+                    <p>• Extensive experience in academic leadership, research supervision, and clinical innovation</p>
+                  </div>
+                </AnimateOnScroll>
+
+              </div>
+            </div>
+          </section>
+
       {/* Executive Team */}
       <section className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4">
@@ -116,7 +169,7 @@ export default function AboutPage() {
               </AnimateOnScroll>
             ))}
           </div>
-
+          
           {/* Team Members */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-12">
             {team.map((member, i) => (

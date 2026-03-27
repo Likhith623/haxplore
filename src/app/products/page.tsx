@@ -15,14 +15,14 @@ const products = [
   {
     title: 'Dental Implants',
     description: 'Precision-engineered titanium implants with optimized surface treatment for superior osseointegration, long-term stability, and predictable clinical outcomes.',
-    image: '/images/bg2.jpg',
+    image: '/images/dental_implants.jpeg',
     href: '/products/dental-implants',
     features: ['Grade 5 Ti-6Al-4V Alloy', 'SLA Surface Treatment', 'Multiple Diameter Options', 'High Primary Stability'],
   },
   {
     title: 'Bone Graft Materials',
     description: 'Biocompatible bone graft solutions supporting guided bone regeneration for successful implant placement in compromised sites.',
-    image: '/images/ex1.jpg',
+    image: '/images/Bone_graft.jpeg',
     href: '/products/bone-grafts',
     features: ['Xenograft & Synthetic Options', 'Optimal Particle Size', 'Predictable Resorption', 'Enhanced Osteoconductivity'],
   },

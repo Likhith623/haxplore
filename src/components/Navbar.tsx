@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { FaBars, FaTimes, FaPhone, FaEnvelope } from 'react-icons/fa';
-
+import Image from 'next/image';
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
@@ -57,9 +57,18 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4">
           <nav className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-baseline gap-0.5 shrink-0">
-              <span className="text-2xl lg:text-3xl font-bold text-primary">Kindway</span>
-              <span className="text-sm lg:text-base font-semibold text-accent">BioReZens</span>
+            <Link href="/" className="flex items-center gap-2 shrink-0">
+              <Image
+                src="/images/Kindway_logo_only.jpeg"
+                alt="Kindway Logo"
+                width={36}
+                height={36}
+                className="object-contain"
+              />
+              <div className="flex items-baseline gap-0.5">
+                <span className="text-2xl lg:text-3xl font-bold text-primary">Kindway</span>
+                <span className="text-sm lg:text-base font-semibold text-accent">BioReZens</span>
+              </div>
             </Link>
 
             {/* Desktop Nav */}

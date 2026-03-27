@@ -126,8 +126,13 @@ export default function BlogPage() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Stay Informed</h2>
           <p className="opacity-90 mb-8">Subscribe to our newsletter for the latest articles, workshop announcements, and product updates.</p>
           <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input type="email" required placeholder="Your email address" className="flex-1 px-5 py-3 rounded-full text-foreground outline-none focus:ring-2 focus:ring-accent" />
-            <button type="submit" className="bg-accent hover:bg-amber-500 text-white font-semibold px-6 py-3 rounded-full transition-colors">Subscribe</button>
+            <input
+                type="email"
+                required
+                placeholder="Your email address"
+                className="flex-1 px-5 py-3 rounded-full text-foreground bg-white outline-none focus:ring-2 focus:ring-accent"
+              />
+          <button type="submit" className="bg-accent hover:bg-amber-500 text-white font-semibold px-6 py-3 rounded-full transition-colors">Subscribe</button>
           </form>
         </div>
       </section>

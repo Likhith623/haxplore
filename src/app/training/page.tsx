@@ -5,21 +5,16 @@ import { FaCheckCircle, FaArrowRight, FaCalendarAlt, FaDownload, FaUserMd, FaCer
 import PageBanner from '@/components/PageBanner';
 import AnimateOnScroll from '@/components/AnimateOnScroll';
 import StatsCounter from '@/components/StatsCounter';
-
+import training_data from '@/components/json/training_data.json';
 export const metadata: Metadata = {
   title: 'Training & Workshops',
   description: 'Dental implant training workshops, clinical courses, and hands-on surgical sessions by Kindway BioReZens. Register now for comprehensive implantology education.',
   keywords: ['dental implants training', 'dental workshop', 'implantology course', 'hands-on surgical training', 'dental education'],
 };
 
-const upcomingEvents = [
-  { date: 'Jul 15-17, 2026', title: 'Dental Implantology Workshop: Diagnosis to Execution', location: 'Varanasi', spots: 12, type: 'Workshop' },
-  { date: 'Aug 5-6, 2026', title: 'Bone Graft & Tissue Augmentation Masterclass', location: 'Varanasi', spots: 8, type: 'Masterclass' },
-  { date: 'Sep 20-22, 2026', title: 'Advanced Implant Surgery: Complex Cases', location: 'Delhi', spots: 10, type: 'Advanced' },
-  { date: 'Oct 1-3, 2026', title: 'Comprehensive Implantology Certificate Course', location: 'Varanasi', spots: 15, type: 'Course' },
-  { date: 'Nov 12-13, 2026', title: 'Live Surgical Demonstration & Hands-On Practice', location: 'Varanasi', spots: 20, type: 'Demo' },
-  { date: 'Dec 5-7, 2026', title: 'Year-End Dental Innovation Summit', location: 'Mumbai', spots: 50, type: 'Summit' },
-];
+const upcomingEvents = training_data.upcomingEvents;
+
+
 
 export default function TrainingPage() {
   return (
@@ -149,7 +144,7 @@ export default function TrainingPage() {
                     </div>
                   </div>
                   <h3 className="font-bold text-foreground mb-2 flex-1">{event.title}</h3>
-                  <p className="text-sm text-primary font-medium mb-4">{event.spots} spots remaining</p>
+                  {/* <p className="text-sm text-primary font-medium mb-4">{event.spots} spots remaining</p> */}
                   <a
                     href="https://docs.google.com/forms/d/e/1FAIpQLSfn-3ipARVcitwERkEnyy-zjfuojuprZM9u7cQS1U98Ow4V0w/viewform"
                     target="_blank"
